@@ -1,0 +1,26 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "- Pour les utilisateurs de windows, vous pouvez passer directement par l'installeur classique. En bonus ça serait mieux d'avoir une ligne de commande user friendly, par exemple cygwin.\r - Pour les autres, je vous préconise d'installer Node Version Manager qui vous permettra de facilement changer de version de Node.js, mais vous pouvez aussi passer par l'installeur classique.",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArnaudRitti/nodejs-elsassjug.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArnaudRitti/nodejs-elsassjug/issues"
+  },
+  "homepage": "https://github.com/ArnaudRitti/nodejs-elsassjug"
+}
