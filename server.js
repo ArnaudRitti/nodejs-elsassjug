@@ -1,5 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
+var Firebase = require("firebase");
+var myFirebaseRef = new Firebase("https://sizzling-torch-8158.firebaseio.com/");
 var app = express()
 
 app.use(bodyParser.json())
@@ -9,23 +11,17 @@ app.get('/', function (req, res) {
 })
 
 app.get('/pets', function (req, res) {
-    var Heidi = new Object();
-    Heidi.name = "Heidi";
-    Heidi.kind  = 'Dog';
-    Heidi.age = 3;
-
-    var Plutot = new Object();
-    Plutot.name = "Plutot";
-    Plutot.kind  = 'Dog';
-    Plutot.age = 14;
-
-    var pets = [Heidi, Plutot];
-  res.send(JSON.stringify(pets))
+    myFirebaseRef.once("value", function(data) {
+        res.send(data.val())
+    });
 })
 
-app.post('/pet', function (req, res) {
-    if (!req.body) return res.sendStatus(400)
-    res.json(req.body);
+
+app.post('/pets', function (req, res) {
+    myFirebaseRef.push(req.body);
+    res.sendStatus(200);
+    res.send('COUCOU')
 });
+
 
 app.listen(3000)
